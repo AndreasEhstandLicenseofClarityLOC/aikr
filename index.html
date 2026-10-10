@@ -99,6 +99,43 @@ shared understanding necessary to achieve interoperability and trust in agentic 
   </ul>
 </div>
 
+<h2>KR for Trust &mdash; current trust-layer work</h2>
+<p style="font-size:0.9em;color:#555;margin:0.3em 0 1em;">Drafts arising from the trust-layer thread on public-aikr (opened 3 August 2026). All files live in the <a href="https://github.com/w3c-cg/aikr/tree/main/trust">trust folder</a> and are open for discussion; nothing here has been agreed by the group.</p>
+<ul class="refs">
+  <li>
+    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/trust-layer-thread-summary.html">Knowledge Representation for Trust: Vocabulary, Use Cases and Working Draft</a> <span class="tag tag-review">For Review</span></div>
+    <div class="doc-desc">Use-case cards drawn from agent incidents and scenarios, a shared glossary, a trace from each weak point to proposed fixes and KRT terms, a coverage grid of contributors&rsquo; proposals, and plain-English summaries of the latest list exchanges. Proposed for discussion at the weekly calls from 21 September 2026.</div>
+  </li>
+  <li>
+    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/krt.html">KR for Trust Ontology (KRT), Skeleton v0.1</a> <span class="tag tag-draft">Draft</span></div>
+    <div class="doc-desc">Classes, properties, controlled values and SHACL validation rules R0&ndash;R11 for recording trust decisions involving AI agents. Files: <a href="https://w3c-cg.github.io/aikr/trust/krt.ttl">krt.ttl</a> (ontology), <a href="https://w3c-cg.github.io/aikr/trust/krt-shapes.ttl">krt-shapes.ttl</a> (shapes), <a href="https://w3c-cg.github.io/aikr/trust/krt-example.ttl">krt-example.ttl</a> (one passing and one failing record).</div>
+  </li>
+  <li>
+    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/trust/kroftrust.md">The Knowledge Representation of the Trust Layer Through the Lens of Digital Identity Chains</a> <span class="tag tag-open">Open Consultation Status</span></div>
+    <div class="doc-desc">Draft technical note on resolution dependency in agent identity, addressed to the W3C groups working on agent trust, with a survey of related efforts outside W3C and annexes on Base L2, MolTrust and the Agent Identity Protocol. Consultation opened 2 August 2026.</div>
+  </li>
+  <li>
+    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/trust/comparison-semantics.md">Comparison Semantics</a> <span class="tag tag-draft">Note</span></div>
+    <div class="doc-desc">Full text of &sect;4.1 of the trust-layer note: why canonical bytes do not establish that two artefacts concern the same subject, the three failure classes (Unicode normalization, large integers, divergent declared semantics), and what a profile must state.</div>
+  </li>
+  <li>
+    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/dns-dependency-agent-identity-note.html">What the Agentic Web Actually Rests On: DNS Anchoring and the ARIA Public Surface</a> <span class="tag tag-editor">Technical Note</span></div>
+    <div class="doc-desc">Findings from queries against the ARIA public verification surface (8&ndash;9 September 2026), set against the wider field of DNS-anchored agent identity proposals. Prepared for the TrustLayer Foundation and offered to the AI KR CG for discussion; open for correction.</div>
+  </li>
+  <li>
+    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/trust/ksk">Root KSK Rollover, W3C Trust Groups and AI KR</a> <span class="tag tag-draft">Note</span></div>
+    <div class="doc-desc">The DNS root key change of 11 October 2026, how the Credentials CG is discussing DNSSEC-anchored DIDs, implications for the open and agentic web, open questions on risks to everyday users, and links to the related TPAC 2026 issues.</div>
+  </li>
+  <li>
+    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/Crosswalk.html">Agent Trust &amp; Identity: Vocabulary Crosswalk Across W3C Community Groups</a> <span class="tag tag-open">Open Consultation Status</span></div>
+    <div class="doc-desc">A focused crosswalk of the identity/trust-specific W3C groups (Agent Trust Protocol CG, Agent Identity Registry Protocol CG, W3C Credentials CG, and related DID/VC work) converging on overlapping agent-identity vocabulary.</div>
+  </li>
+  <li>
+    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/aria.html">ARIA Terminology Disambiguation: WAI-ARIA vs. Agent-ARIA</a> <span class="tag tag-open">Open Consultation Status</span></div>
+    <div class="doc-desc">Disambiguates the accessibility WAI-ARIA vocabulary from the unrelated &ldquo;Agent-ARIA&rdquo; identity/authorization proposal circulating in agent-identity discussions &mdash; a naming collision worth flagging early. See also the companion <a href="https://github.com/w3c-cg/aikr/blob/main/trust/ariaexplainer.md">plain-language explainer</a> on agent identity and authorization.</div>
+  </li>
+</ul>
+
 <h2>Repository contents &mdash; reference material</h2>
 <p style="font-size:0.9em;color:#555;margin:0.3em 0 1em;">Earlier and supporting notes. Several of these fed into the three core resources above; some information they contain has since been merged or superseded. Retained for reference and history.</p>
 <ul class="refs">
@@ -107,12 +144,8 @@ shared understanding necessary to achieve interoperability and trust in agentic 
     <div class="doc-desc">A crosswalk of current W3C Working Groups, Community Groups, and the Web &amp; AI Interest Group whose scope touches AI or agentic AI &mdash; home page, repo, spec links, and main vocabulary terms for each, with notes flagging where groups are converging on overlapping terminology independently.</div>
   </li>
   <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/Trust/Crosswalk.html">Agent Trust &amp; Identity: Vocabulary Crosswalk Across W3C Community Groups</a> <span class="tag tag-open">Open Consultation Status</span></div>
-    <div class="doc-desc">A focused crosswalk of the identity/trust-specific W3C groups (Agent Trust Protocol CG, Agent Identity Registry Protocol CG, W3C Credentials CG, and related DID/VC work) converging on overlapping agent-identity vocabulary.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/Trust/aria.html">ARIA Terminology Disambiguation: WAI-ARIA vs. Agent-ARIA</a> <span class="tag tag-open">Open Consultation Status</span></div>
-    <div class="doc-desc">Disambiguates the accessibility WAI-ARIA vocabulary from the unrelated &ldquo;Agent-ARIA&rdquo; identity/authorization proposal circulating in agent-identity discussions &mdash; a naming collision worth flagging early. See also the companion <a href="https://github.com/w3c-cg/aikr/blob/main/Trust/ariaexplainer.md">plain-language explainer</a> on agent identity and authorization.</div>
+    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/high%20risk%20classification/AIKR_AI-Act-HighRisk-Classification_Glossary.md">AI Act High-Risk Classification Guidelines &mdash; Glossary &amp; Resource Notes</a> <span class="tag tag-draft">Glossary</span></div>
+    <div class="doc-desc">Summary, ecosystem alignment notes and a SKOS-style glossary built from the draft Commission guidelines on high-risk classification under Article 6 of the AI Act; prepared for the CG&rsquo;s response to the July 2026 targeted consultation.</div>
   </li>
   <li>
     <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/summary/">Summary &amp; Repository Map</a> <span class="tag tag-review">For Review</span></div>
@@ -131,6 +164,10 @@ shared understanding necessary to achieve interoperability and trust in agentic 
     <div class="doc-desc">The earlier standards inventory; largely consolidated into the Standards Inventory &amp; Gap Analysis in the core resources above.</div>
   </li>
   <li>
+    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/junevocabwalkthru/">Agentic AI Vocabulary: Walkthrough &amp; Tutorial (June 2026)</a> <span class="tag tag-super">Superseded</span></div>
+    <div class="doc-desc">The June working draft of the vocabulary as tables by domain; retired and superseded by the Agentic AI Vocabulary in the core resources above.</div>
+  </li>
+  <li>
     <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/agonalign/">Agent Ontology Alignment: IDL and HMAS</a> <span class="tag tag-draft">CG-Draft</span></div>
     <div class="doc-desc">A use-case alignment (not a new ontology) between the IDL Agent Ontology and the HMAS ontology stack.</div>
   </li>
@@ -147,8 +184,12 @@ shared understanding necessary to achieve interoperability and trust in agentic 
     <div class="doc-desc">Notes on the proposed WebMCP browser API and its relationship to W3C Web Machine Learning incubation work.</div>
   </li>
   <li>
+    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/voiceAI/vocab/">Voice Agents Vocabulary</a> <span class="tag tag-draft">CG-Draft</span></div>
+    <div class="doc-desc">A baseline vocabulary for agentic voice interaction, organised under the CG&rsquo;s eight knowledge domains, with appendices on implementation-layer terms from open-source frameworks and on terms from the W3C Smart Voice Agents Workshop report. Opened for contributions 2 June 2026.</div>
+  </li>
+  <li>
     <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/voiceAI/voice-ai-standards-respec.html">Voice AI Standards &mdash; ReSpec Draft</a> <span class="tag tag-editor">Editor&rsquo;s Draft</span></div>
-    <div class="doc-desc">Requirements and design principles for voice AI systems, with analysis of documented deployment failures.</div>
+    <div class="doc-desc">Requirements and design principles for voice AI systems, with analysis of documented deployment failures. See the <a href="https://github.com/w3c-cg/aikr/blob/main/voiceAI/readmeplease.md">document-set guide</a> for how the voice drafts relate.</div>
   </li>
   <li>
     <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/voiceAI/voice-ai-standards-withnewtypes.html">Voice AI Standards &mdash; With New Types</a> <span class="tag tag-editor">Editor&rsquo;s Draft</span></div>
