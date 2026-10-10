@@ -25,7 +25,7 @@
 </style></head><body>
 
 <h1>Agentic AI Vocabulary</h1>
-<p class="sub"><span class="wd">DRAFT · June 2026</span> &nbsp; W3C AI Knowledge Representation Community Group (AI&nbsp;KR&nbsp;CG) &nbsp;·&nbsp; structured by the <a href="https://w3c-cg.github.io/aikr/taxonomy/">Knowledge-Domains taxonomy</a></p>
+<p class="sub"><span class="wd">DRAFT · June 2026 · updated 10 October 2026</span> &nbsp; W3C AI Knowledge Representation Community Group (AI&nbsp;KR&nbsp;CG) &nbsp;·&nbsp; structured by the <a href="https://w3c-cg.github.io/aikr/taxonomy/">Knowledge-Domains taxonomy</a></p>
 
 <div class="contribute"><b>Invitation to contribute.</b> You are invited to review these terms and definitions, propose changes, and discuss them on the public mailing list of the AI&nbsp;KR&nbsp;CG: <b>public-aikr@w3.org</b> — archives at <a href="https://lists.w3.org/Archives/Public/public-aikr/">lists.w3.org/Archives/Public/public-aikr/</a>. Anyone may read or write to this list. Proposed definitions and relations are first drafts for the group to critique.</div>
 
@@ -34,13 +34,13 @@
 <nav class="toc"><b>Contents</b><ul>
 <li><a href="#c1">1. Agent types & autonomy</a> <span class="ct">(8)</span></li>
 <li><a href="#c2">2. Cognition & capability</a> <span class="ct">(7)</span></li>
-<li><a href="#c3">3. Interaction, communication & identity</a> <span class="ct">(12)</span></li>
+<li><a href="#c3">3. Interaction, communication & identity</a> <span class="ct">(18)</span></li>
 <li><a href="#c4">4. Commerce & settlement</a> <span class="ct">(26)</span></li>
 <li><a href="#c5">5. Oversight, safety & interpretability</a> <span class="ct">(26)</span></li>
 <li><a href="#c6">6. Regulation & governance</a> <span class="ct">(30)</span></li>
 <li><a href="#c7">7. Agentic standards & standards bodies</a> <span class="ct">(13)</span></li>
 <li><a href="#c8">8. Applied domains</a> <span class="ct">(26)</span></li>
-<li><a href="#acr">Acronyms — quick reference</a> <span class="ct">(39)</span></li>
+<li><a href="#acr">Acronyms — quick reference</a> <span class="ct">(42)</span></li>
 </ul></nav>
 
 <p>This vocabulary is organised under the eight categories of the <a href="https://w3c-cg.github.io/aikr/taxonomy/">Agentic AI Knowledge-Domains taxonomy</a>, so each term sits in the same category used across the repository. Columns: the proposed definition, the canonical source, and SKOS-style relations (broader / narrower / partOf / related / regulates / mitigates …).</p>
@@ -68,20 +68,26 @@
 <tr><td class="t">Planning</td><td>Capability to generate action sequences to reach goals.</td><td class="s">AI-KR CG agent ontology (AIAO)</td><td class="r">partOf: capability</td></tr>
 <tr><td class="t">Reasoning</td><td>Capability to apply logic and knowledge to decisions.</td><td class="s">AI-KR CG agent ontology (AIAO)</td><td class="r">partOf: capability</td></tr>
 </tbody></table>
-<h2 id="c3">3. Interaction, communication &amp; identity <span class="ct">(12 terms)</span></h2>
+<h2 id="c3">3. Interaction, communication &amp; identity <span class="ct">(18 terms)</span></h2>
 <table class="voc"><thead><tr><th>Term</th><th>Proposed definition</th><th>Source</th><th>Relations</th></tr></thead>
 <tbody>
 <tr><td class="t">A2A</td><td>Agent-to-Agent. Protocols and frameworks linking independent agents without human intervention.</td><td class="s">Google (Agent2Agent protocol)</td><td class="r">related: MCP, AP2</td></tr>
 <tr><td class="t">ACP (Agent Communication Protocol)</td><td>REST-native inter-agent protocol from the AGNTCY collective; maps agent interactions onto HTTP verbs.</td><td class="s"><a href="https://agntcy.org/">AGNTCY / Linux Foundation</a></td><td class="r">related: A2A, MCP</td></tr>
 <tr><td class="t">ANP (Agent Network Protocol)</td><td>Open, DID-based protocol for decentralised agent discovery and collaboration; published as a W3C White Paper.</td><td class="s"><a href="https://w3c-cg.github.io/ai-agent-protocol/">ANP / W3C</a></td><td class="r">related: DID</td></tr>
+<tr><td class="t">continuity of holding</td><td>Whether the party controlling a domain name now is the party that controlled it when a key binding was recorded. A DNS key binding certifies only the current holder; after a lapse, transfer or sale the new holder&#x27;s key verifies just as well.</td><td class="s"><a href="https://www.ietf.org/archive/id/draft-ranjbar-dane-did-01.html">draft-ranjbar-dane-did-01</a></td><td class="r">related: DANE-EE key binding, DID; contrasts: key continuity</td></tr>
+<tr><td class="t">DANE-EE key binding</td><td>A TLSA record (usage 3, selector SPKI, SHA-256) under a DNSSEC-signed name that binds an agent&#x27;s or DID&#x27;s key to that name with no certificate authority in the path.</td><td class="s"><a href="https://www.ietf.org/archive/id/draft-ranjbar-dane-did-01.html">draft-ranjbar-dane-did-01</a></td><td class="r">broader: DNSSEC; related: DID, continuity of holding</td></tr>
 <tr><td class="t">DID (Decentralized Identifiers)</td><td>W3C standard for verifiable, self-sovereign identifiers; basis for agent identity.</td><td class="s"><a href="https://www.w3.org/TR/did-1.1/">W3C DID v1.1 (CR)</a></td><td class="r">related: Verifiable Credentials</td></tr>
+<tr><td class="t">DNSSEC (DNS Security Extensions)</td><td>Signatures on DNS records that let a resolver verify answers along a chain of trust from the DNS root down to a name.</td><td class="s"><a href="https://blog.cloudflare.com/root-ksk-2024-rollover/">Cloudflare (2026)</a></td><td class="r">related: trust anchor, root KSK, DANE-EE key binding</td></tr>
 <tr><td class="t">human-in-the-loop</td><td>Interaction style requiring human guidance, review, or approval of agent actions.</td><td class="s">AI-KR CG agent ontology (AIAO)</td><td class="r">related: graduated human oversight</td></tr>
 <tr><td class="t">KYA</td><td>Know Your Agent. A governance framework for registering, verifying, and profiling autonomous agents before deployment.</td><td class="s">Emerging governance usage</td><td class="r">related: Sybil resistance, evidence artifacts; analogous: KYC</td></tr>
 <tr><td class="t">MCP</td><td>Model Context Protocol. An open standard for connecting models to external data, tools, and applications.</td><td class="s">Anthropic (Model Context Protocol)</td><td class="r">related: A2A, tool use</td></tr>
 <tr><td class="t">NANDA</td><td>Networked AI Agents in a Decentralized Architecture; DID-based global agent discovery/registry (MIT Media Lab).</td><td class="s"><a href="https://nanda.media.mit.edu/">MIT Media Lab (Project NANDA)</a></td><td class="r">related: DID, ANP</td></tr>
 <tr><td class="t">OASF (Open Agent Schema Framework)</td><td>Standard schema for describing agent capabilities and interfaces in machine-readable form.</td><td class="s"><a href="https://agntcy.org/">AGNTCY</a></td><td class="r">related: ACP</td></tr>
 <tr><td class="t">origin-bound authority</td><td>Binding an agent&#x27;s authorisation to execute a tool to the verified source of the initiating request.</td><td class="s">Agent-security literature</td><td class="r">mitigates: indirect prompt injection</td></tr>
+<tr><td class="t">root KSK (key-signing key)</td><td>The key that signs the DNS root&#x27;s key set and serves as the trust anchor for DNSSEC. KSK-2024 is scheduled to replace KSK-2017 on 11 October 2026.</td><td class="s"><a href="https://blog.cloudflare.com/root-ksk-2024-rollover/">Cloudflare (2026)</a>; <a href="https://www.iana.org/dnssec/files">IANA</a></td><td class="r">partOf: DNSSEC; related: trust anchor, trust anchor sentinel</td></tr>
 <tr><td class="t">Sybil resistance</td><td>A system&#x27;s capacity to defend against attackers creating many fake identities to gain influence.</td><td class="s">Douceur (2002)</td><td class="r">related: KYA; mitigates: fake-identity attacks</td></tr>
+<tr><td class="t">trust anchor</td><td>A public key, or its fingerprint, that a verifier already trusts and starts validation from; the DNS root key is the trust anchor for DNSSEC. Distinct from anchoring a hash on a ledger.</td><td class="s"><a href="https://blog.cloudflare.com/root-ksk-2024-rollover/">Cloudflare (2026)</a></td><td class="r">related: root KSK, DNSSEC, DID</td></tr>
+<tr><td class="t">trust anchor sentinel</td><td>A query (RFC 8509) that asks a resolver whether it trusts a given root key; a model for agents declaring which anchors they accept.</td><td class="s"><a href="https://datatracker.ietf.org/doc/html/rfc8509">RFC 8509</a></td><td class="r">related: trust anchor, root KSK</td></tr>
 <tr><td class="t">Verifiable Credentials</td><td>W3C standard for tamper-evident, cryptographically verifiable claims; used for agent credentials.</td><td class="s"><a href="https://www.w3.org/TR/vc-data-model-2.0/">W3C VC 2.0</a></td><td class="r">related: DID</td></tr>
 </tbody></table>
 <h2 id="c4">4. Commerce &amp; settlement <span class="ct">(26 terms)</span></h2>
@@ -226,7 +232,7 @@
 <tr><td class="t">target identification</td><td>The phase pinpointing a biological molecule or pathway central to a disease.</td><td class="s">Beyond SMILES, arXiv 2602.10163</td><td class="r">partOf: agentic drug discovery</td></tr>
 </tbody></table>
 
-<h2 id="acr">Acronyms — quick reference <span class="ct">(39)</span></h2>
+<h2 id="acr">Acronyms — quick reference <span class="ct">(42)</span></h2>
 <p style="font-size:.88em;color:#5a6570">Auto-derived from the terms above. RAILS and GAIE expansions remain <i>unconfirmed</i>.</p>
 <table class="acr"><thead><tr><th>Acronym</th><th>Expansion / meaning</th></tr></thead><tbody>
 <tr><td class="t">A2A</td><td>Agent</td></tr>
@@ -242,7 +248,9 @@
 <tr><td class="t">CoWoS</td><td>Chip</td></tr>
 <tr><td class="t">CreativeAgent</td><td>Agent that generates content or solutions</td></tr>
 <tr><td class="t">CSA MAESTRO</td><td>Multi</td></tr>
+<tr><td class="t">DANE</td><td>DNS-Based Authentication of Named Entities</td></tr>
 <tr><td class="t">DID</td><td>W3C standard for verifiable, self</td></tr>
+<tr><td class="t">DNSSEC</td><td>DNS Security Extensions</td></tr>
 <tr><td class="t">DORA</td><td>Digital Operational Resilience Act</td></tr>
 <tr><td class="t">ELK</td><td>Eliciting Latent Knowledge</td></tr>
 <tr><td class="t">ERC-8004</td><td>Ethereum proposal for on</td></tr>
@@ -252,6 +260,7 @@
 <tr><td class="t">GENIUS Act</td><td>Guiding and Establishing National Innovation for U</td></tr>
 <tr><td class="t">GPAI</td><td>General</td></tr>
 <tr><td class="t">HBM4</td><td>High Bandwidth Memory 4</td></tr>
+<tr><td class="t">KSK</td><td>Key-signing key (DNS root trust anchor)</td></tr>
 <tr><td class="t">KYA</td><td>Know Your Agent</td></tr>
 <tr><td class="t">LearningAgent</td><td>Agent that adapts its behaviour over time from experience</td></tr>
 <tr><td class="t">MCP</td><td>Model Context Protocol</td></tr>
