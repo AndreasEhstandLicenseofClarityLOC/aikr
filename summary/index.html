@@ -1,239 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>W3C AI Knowledge Representation Community Group</title>
-  <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-CG-DRAFT" />
-  <style>
-    body { max-width: 52em; margin: 0 auto; padding: 0 1.5em 4em; font-family: sans-serif; color: #333; }
-    .head { border-bottom: 2px solid #005a9c; padding-bottom: 1.2em; margin-bottom: 2em; overflow: hidden; }
-    .head img { float: left; margin-right: 1.2em; margin-top: 0.3em; }
-    .head h1 { font-size: 1.6em; color: #005a9c; margin: 0 0 0.3em 0; }
-    .head p { font-size: 0.9em; margin: 0.2em 0; }
-    .head a { color: #005a9c; }
-    .intro { background: #f0f4fa; border-left: 4px solid #005a9c; padding: 0.8em 1.2em; margin: 1.5em 0 2em; font-size: 0.95em; }
-    h2 { border-bottom: 1px solid #005a9c; color: #005a9c; padding-bottom: 0.25em; margin-top: 2em; }
-    .deliverables { list-style: none; padding: 0; margin: 0.5em 0; }
-    .deliverables li { border: 1px solid #ccd6e8; border-radius: 4px; padding: 0.85em 1.2em; margin-bottom: 0.7em; background: #fafcff; }
-    .deliverables li:hover { background: #eef3fb; }
-    .doc-title { font-size: 1.02em; font-weight: bold; }
-    .doc-title a { color: #005a9c; text-decoration: none; }
-    .doc-title a:hover { text-decoration: underline; }
-    .tag { display: inline-block; font-size: 0.7em; font-weight: bold; padding: 0.15em 0.5em; border-radius: 3px; margin-left: 0.5em; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.04em; }
-    .tag-draft { background: #fff3cd; color: #7a5000; border: 1px solid #e6b800; }
-    .tag-editor { background: #d1ecf1; color: #0c5460; border: 1px solid #17a2b8; }
-    .tag-review { background: #f8d7da; color: #842029; border: 1px solid #dc3545; }
-    .tag-super { background: #e2e3e5; color: #41464b; border: 1px solid #adb5bd; }
-    .tag-open { background: #d4edda; color: #155724; border: 1px solid #28a745; }
-    .doc-meta { font-size: 0.82em; color: #555; margin-top: 0.3em; }
-    .doc-desc { font-size: 0.87em; color: #444; margin-top: 0.4em; }
-    .refs { list-style: none; padding: 0; margin: 0.5em 0; }
-    .refs li { padding: 0.55em 0; border-bottom: 1px solid #eee; font-size: 0.9em; }
-    .refs .doc-title { font-size: 0.98em; }
-    .refs .doc-desc { margin-top: 0.2em; }
-    .starthere { background: #fff8e8; border: 2px solid #e6b800; border-radius: 6px; padding: 0.6em 1.4em 1.2em; margin: 1.5em 0 2.5em; }
-    .starthere h2 { border: none; color: #7a5000; margin-top: 0.6em; }
-    .starthere .lead { font-size: 0.9em; color: #6b5300; margin: 0.2em 0 1em; }
-    .starthere .deliverables li { border-color: #e6c66a; background: #fffdf6; }
-    .contribute { background: #f8f8f8; border: 1px solid #ddd; padding: 0.8em 1.2em; margin-top: 2.5em; font-size: 0.87em; border-radius: 3px; }
-    .contribute a { color: #005a9c; }
-    footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #ccc; font-size: 0.82em; color: #666; }
-    footer a { color: #005a9c; }
-  </style>
+<meta charset="utf-8">
+<title>AI KR CG — Summary and Repository Map</title>
+<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+<script class="remove">
+var respecConfig = {
+  specStatus: "CG-DRAFT",
+  shortName: "aikr-summary",
+  editors: [{ name: "Paola Di Maio", company: "W3C AI KR Community Group (Chair)" }],
+  github: "w3c-cg/aikr",
+  group: "cg/aikr",
+  noRecTrack: true,
+  lint: false,
+};
+  
+</script>
+<style>
+  :root { --w3c-blue:#005a9c; --w3c-line:#c3cedb; --w3c-head:#eaf1f8; --w3c-alt:#f6f9fc; }
+  table.slot, table.inv { border-collapse: collapse; width: 100%; font-size: 0.88em; }
+  table.slot th, table.slot td, table.inv th, table.inv td { border: 1px solid var(--w3c-line); padding: 6px 9px; vertical-align: top; text-align: left; }
+  table.slot th, table.inv th { background: var(--w3c-head); color: var(--w3c-blue); }
+  table.slot tr:nth-child(even) td, table.inv tr:nth-child(even) td { background: var(--w3c-alt); }
+  table.inv td.body { font-weight: 600; white-space: nowrap; }
+  code.dim { white-space: nowrap; }
+  .new { background: #fff6d9; padding: 0 3px; border-radius: 3px; }
+  .wd { background:#fff6d9; border:1px solid #e6d28a; padding:2px 8px; border-radius:4px; font-size:0.85em; }
+  h2, h3 { color: var(--w3c-blue); }
+</style>
 </head>
 <body>
 
-<div class="head">
-  <a href="https://www.w3.org/community/aikr/">
-    <img src="https://www.w3.org/community/src/templates/wordpress/StoryTeller/img/cgbg-logo.svg" alt="W3C Community Group" width="100" height="46" />
-  </a>
-  <h1>W3C AI Knowledge Representation<br/>Community Group</h1>
+<section id="abstract">
   <p>
-    <a href="https://www.w3.org/community/aikr/">w3.org/community/aikr</a>
-    &nbsp;&bull;&nbsp;
-    <a href="https://github.com/w3c-cg/aikr">GitHub repository</a>
-    &nbsp;&bull;&nbsp;
-    <a href="https://lists.w3.org/Archives/Public/public-aikr/">Mailing list</a>
+    <span class="wd">WORKING DRAFT</span> &nbsp;
+    This is a non-normative <strong>summary and index</strong> of the work of the W3C
+    AI Knowledge Representation (AI KR) Community Group, and a map to the documents held
+    in its repository. The AI KR CG applies canonical knowledge-representation techniques
+    — formal semantics, logic, and controlled natural language — to
+    <em>track, map and evaluate</em> the fragmented and rapidly evolving landscape of
+    agentic AI on the Web and its neighbouring standards. The documents in the repository
+    are working technical notes: <em>temporary flags</em> that record how web agents and
+    their standards are evolving, rather than finished specifications. This note sets out
+    the organising framework into which those notes — and future contributions — fit, and
+    points to an interactive map of how they relate to one another and to neighbouring
+    W3C and IETF work.
   </p>
-  <p><strong>Last updated:</strong> 10 October 2026</p>
-</div>
+</section>
 
-<div class="intro">
+<section id="sotd" class="introductory">
+  <p>
+    This is a draft Community Group document. It is <strong>non-normative</strong> and
+    editorial in nature; it makes no conformance claims and uses no RFC&nbsp;2119
+    requirement language. The technical notes it indexes are snapshots of an evolving
+    landscape — part of an ongoing process of representation and observation, not a
+    finished product. Comments, corrections and contributions are welcome through the
+    Community Group and its repository.
+  </p>
+</section>
 
-  <p> The AI landscape is dense, chaotic, and evolving exponentially. In this context, terms, concepts, and initiatives overlap and are frequently ambiguous, making it more difficult to build the
-shared understanding necessary to achieve interoperability and trust in agentic systems.The AI Knowledge Representation Community Group (AI KR CG) seeks to reduce the gaps in shared concepts and semantics. It monitors the evolution of AI across multiple dimensions — identifying, mapping, and analysing the primitives emerging from research and related standardization efforts. Using canonical knowledge-representation techniques, the AI KR CG builds shared, explicit representations — categories, taxonomies, and vocabularies — that support alignment, consistency, and model integrity across disparate initiatives, giving stakeholders common terms of reference for a fast-moving field.Through work on taxonomies, vocabularies, a standards inventory, gap analysis, and more, the Community Group hopes to help individuals and organisations stay up to date with developments in the field and achieve a deeper understanding of the ongoing evolution of the agentic-AI landscape </p>
-  
-  <p>This repository holds <strong>shared notes and memos</strong> aimed at informing AI&nbsp;KR&nbsp;CG participants about the state of the art, through the <strong>representation and definition of key terms and concepts</strong> in the fast-moving agentic-AI landscape.</p>
-  <p>The content of these files is <strong>open for discussion, evaluation, and refinement</strong>. Because the space is emergent and the work is iterative, some of the older files may contain duplicate, missing, or redundant information that has since been merged into the newer files below. Nothing here is a W3C Standard or on the W3C Standards Track.</p>
-  <p>Participants are welcome to <a href="https://www.w3.org/community/aikr/">contact the chair</a>, discuss via the <a href="https://lists.w3.org/Archives/Public/public-aikr/">public mailing list</a>, or suggest how to develop these resources further.</p>
-</div>
+<section id="introduction">
+  <h2>Introduction — why the group exists</h2>
+  <p>
+    Agentic AI is triggering a paradigm shift in computation, delivering unprecedented
+    capabilities together with unprecedented risks — amplified by the immediacy and
+    pervasiveness of the World Wide Web as the substrate on which web agents are developed,
+    tested and deployed. Relevant standards are being produced at great cost across
+    disparate venues — W3C Community and Working Groups, the IETF, and industry consortia —
+    without manifesting coherence between them. The AI KR CG exists to make that landscape
+    legible.
+  </p>
 
-<div class="starthere">
-  <h2>Start here &mdash; the core resources</h2>
-  <p class="lead">Three linked working drafts form the current spine of the group&rsquo;s agentic-AI work. They share one structure &mdash; eight knowledge domains &mdash; and are the documents most in need of your review and contribution. All are <strong>working drafts, provisional and open for review</strong>.</p>
-  <ul class="deliverables">
-    <li>
-      <div class="doc-title">
-        <a href="https://w3c-cg.github.io/aikr/taxonomy/">Agentic AI Knowledge Domains &mdash; Taxonomy</a>
-        <span class="tag tag-review">For Review</span>
-      </div>
-      <div class="doc-meta">W3C AI KR CG &nbsp;&bull;&nbsp; Working draft</div>
-      <div class="doc-desc">The top-level category map: eight knowledge domains under which the vocabulary and the standards inventory are organised. Each term links to a current source; entries are provisional.</div>
-    </li>
-    <li>
-      <div class="doc-title">
-        <a href="https://w3c-cg.github.io/aikr/VOCAB29June/">Agentic AI Vocabulary</a>
-        <span class="tag tag-review">For Review</span>
-      </div>
-      <div class="doc-meta">W3C AI KR CG &nbsp;&bull;&nbsp; Working draft</div>
-      <div class="doc-desc">A controlled vocabulary of ~150 agentic-AI terms with proposed definitions, sources, and SKOS-style relations, organised by the eight taxonomy categories, plus an acronym quick-reference.</div>
-    </li>
-    <li>
-      <div class="doc-title">
-        <a href="https://w3c-cg.github.io/aikr/standards/">Agentic AI Standards Inventory &amp; Gap Analysis</a>
-        <span class="tag tag-review">For Review</span>
-      </div>
-      <div class="doc-meta">W3C AI KR CG &nbsp;&bull;&nbsp; Working draft</div>
-      <div class="doc-desc">An inventory of current agentic-AI standards and efforts with a per-domain coverage/gap assessment and recommended work items, organised by the eight taxonomy categories.</div>
-    </li>
-  </ul>
-</div>
+  <h3>What problem does the group address?</h3>
+  <p>
+    The agentic-AI landscape is fragmented and asymmetric across protocols, vocabularies,
+    architectures and governance regimes. Through canonical KR techniques the CG builds
+    shared, explicit knowledge representations — <em>ontic maps</em> — of the facets of
+    agentic AI, in order to support <strong>alignment, consistency and model integrity</strong>
+    across these disparate efforts.
+  </p>
 
-<h2>KR for Trust &mdash; current trust-layer work</h2>
-<p style="font-size:0.9em;color:#555;margin:0.3em 0 1em;">Drafts arising from the trust-layer thread on public-aikr (opened 3 August 2026). All files live in the <a href="https://github.com/w3c-cg/aikr/tree/main/trust">trust folder</a> and are open for discussion; nothing here has been agreed by the group.</p>
-<ul class="refs">
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/trust-layer-thread-summary.html">Knowledge Representation for Trust: Vocabulary, Use Cases and Working Draft</a> <span class="tag tag-review">For Review</span></div>
-    <div class="doc-desc">Use-case cards drawn from agent incidents and scenarios, a shared glossary, a trace from each weak point to proposed fixes and KRT terms, a coverage grid of contributors&rsquo; proposals, and plain-English summaries of the latest list exchanges. Proposed for discussion at the weekly calls from 21 September 2026.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/krt.html">KR for Trust Ontology (KRT), Skeleton v0.1</a> <span class="tag tag-draft">Draft</span></div>
-    <div class="doc-desc">Classes, properties, controlled values and SHACL validation rules R0&ndash;R11 for recording trust decisions involving AI agents. Files: <a href="https://w3c-cg.github.io/aikr/trust/krt.ttl">krt.ttl</a> (ontology), <a href="https://w3c-cg.github.io/aikr/trust/krt-shapes.ttl">krt-shapes.ttl</a> (shapes), <a href="https://w3c-cg.github.io/aikr/trust/krt-example.ttl">krt-example.ttl</a> (one passing and one failing record).</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/trust/kroftrust.md">The Knowledge Representation of the Trust Layer Through the Lens of Digital Identity Chains</a> <span class="tag tag-open">Open Consultation Status</span></div>
-    <div class="doc-desc">Draft technical note on resolution dependency in agent identity, addressed to the W3C groups working on agent trust, with a survey of related efforts outside W3C and annexes on Base L2, MolTrust and the Agent Identity Protocol. Consultation opened 2 August 2026.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/trust/comparison-semantics.md">Comparison Semantics</a> <span class="tag tag-draft">Note</span></div>
-    <div class="doc-desc">Full text of &sect;4.1 of the trust-layer note: why canonical bytes do not establish that two artefacts concern the same subject, the three failure classes (Unicode normalization, large integers, divergent declared semantics), and what a profile must state.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/dns-dependency-agent-identity-note.html">What the Agentic Web Actually Rests On: DNS Anchoring and the ARIA Public Surface</a> <span class="tag tag-editor">Technical Note</span></div>
-    <div class="doc-desc">Findings from queries against the ARIA public verification surface (8&ndash;9 September 2026), set against the wider field of DNS-anchored agent identity proposals. Prepared for the TrustLayer Foundation and offered to the AI KR CG for discussion; open for correction.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/trust/ksk.md">Root KSK Rollover, W3C Trust Groups and AI KR</a> <span class="tag tag-draft">Note</span></div>
-    <div class="doc-desc">The DNS root key change of 11 October 2026, how the Credentials CG is discussing DNSSEC-anchored DIDs, implications for the open and agentic web, open questions on risks to everyday users, and links to the related TPAC 2026 issues.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/Crosswalk.html">Agent Trust &amp; Identity: Vocabulary Crosswalk Across W3C Community Groups</a> <span class="tag tag-open">Open Consultation Status</span></div>
-    <div class="doc-desc">A focused crosswalk of the identity/trust-specific W3C groups (Agent Trust Protocol CG, Agent Identity Registry Protocol CG, W3C Credentials CG, and related DID/VC work) converging on overlapping agent-identity vocabulary.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/trust/aria.html">ARIA Terminology Disambiguation: WAI-ARIA vs. Agent-ARIA</a> <span class="tag tag-open">Open Consultation Status</span></div>
-    <div class="doc-desc">Disambiguates the accessibility WAI-ARIA vocabulary from the unrelated &ldquo;Agent-ARIA&rdquo; identity/authorization proposal circulating in agent-identity discussions &mdash; a naming collision worth flagging early. See also the companion <a href="https://github.com/w3c-cg/aikr/blob/main/trust/ariaexplainer.md">plain-language explainer</a> on agent identity and authorization.</div>
-  </li>
-</ul>
+  <h3>What risk does it address?</h3>
+  <p>
+    Fragmentation produces <strong>misrepresentation</strong>: partial, inconsistent
+    models of what agents are and do, held by systems and people alike. Left implicit,
+    misrepresentation, <strong>misalignment</strong> and <strong>systemic deviation</strong>
+    accumulate into systemic risk. By rendering the landscape explicit and inspectable, the
+    CG supports the explainability required for trust, security and reliability.
+  </p>
 
-<h2>Repository contents &mdash; reference material</h2>
-<p style="font-size:0.9em;color:#555;margin:0.3em 0 1em;">Earlier and supporting notes. Several of these fed into the three core resources above; some information they contain has since been merged or superseded. Retained for reference and history.</p>
-<ul class="refs">
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/crosswalks/agenticaivocabs.html">W3C AI / Agentic-AI Vocabulary Crosswalk</a> <span class="tag tag-open">Open Consultation Status</span></div>
-    <div class="doc-desc">A crosswalk of current W3C Working Groups, Community Groups, and the Web &amp; AI Interest Group whose scope touches AI or agentic AI &mdash; home page, repo, spec links, and main vocabulary terms for each, with notes flagging where groups are converging on overlapping terminology independently.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/high%20risk%20classification/AIKR_AI-Act-HighRisk-Classification_Glossary.md">AI Act High-Risk Classification Guidelines &mdash; Glossary &amp; Resource Notes</a> <span class="tag tag-draft">Glossary</span></div>
-    <div class="doc-desc">Summary, ecosystem alignment notes and a SKOS-style glossary built from the draft Commission guidelines on high-risk classification under Article 6 of the AI Act; prepared for the CG&rsquo;s response to the July 2026 targeted consultation.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/summary/">Summary &amp; Repository Map</a> <span class="tag tag-review">For Review</span></div>
-    <div class="doc-desc">A ReSpec overview of the group&rsquo;s purpose and how the documents in this repository fit together.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/map/">Repository File Map (interactive)</a> <span class="tag tag-review">For Review</span></div>
-    <div class="doc-desc">An interactive graph of the repository documents and their links to neighbouring W3C and IETF standards.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/landscape/">Standards Landscape Map (interactive)</a> <span class="tag tag-review">For Review</span></div>
-    <div class="doc-desc">An interactive board placing each effort by framework layer (representation &rarr; trust) and openness.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/sdo-inventory/">Agentic AI Standards Inventory (earlier)</a> <span class="tag tag-super">Superseded</span></div>
-    <div class="doc-desc">The earlier standards inventory; largely consolidated into the Standards Inventory &amp; Gap Analysis in the core resources above.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/junevocabwalkthru/">Agentic AI Vocabulary: Walkthrough &amp; Tutorial (June 2026)</a> <span class="tag tag-super">Superseded</span></div>
-    <div class="doc-desc">The June working draft of the vocabulary as tables by domain; retired and superseded by the Agentic AI Vocabulary in the core resources above.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/agonalign/">Agent Ontology Alignment: IDL and HMAS</a> <span class="tag tag-draft">CG-Draft</span></div>
-    <div class="doc-desc">A use-case alignment (not a new ontology) between the IDL Agent Ontology and the HMAS ontology stack.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/ecommerce/">Open Standard Vocabularies for E-commerce and the Agentic Interoperability Gap</a> <span class="tag tag-review">For Review</span></div>
-    <div class="doc-desc">The open e-commerce vocabulary stack and what it lacks for autonomous agents; input to the W3C/GS1 workshop.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/DFMC/">Digital Forensics Model Card Specification</a> <span class="tag tag-draft">CG-Draft</span></div>
-    <div class="doc-desc">A model-card framework for AI/ML systems used in digital and web forensics, with a JSON schema and reference implementation.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/webMCP/webmcp-technical-notes.html">WebMCP Technical Notes</a> <span class="tag tag-editor">Editor&rsquo;s Draft</span></div>
-    <div class="doc-desc">Notes on the proposed WebMCP browser API and its relationship to W3C Web Machine Learning incubation work.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/voiceAI/vocab/">Voice Agents Vocabulary</a> <span class="tag tag-draft">CG-Draft</span></div>
-    <div class="doc-desc">A baseline vocabulary for agentic voice interaction, organised under the CG&rsquo;s eight knowledge domains, with appendices on implementation-layer terms from open-source frameworks and on terms from the W3C Smart Voice Agents Workshop report. Opened for contributions 2 June 2026.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/voiceAI/voice-ai-standards-respec.html">Voice AI Standards &mdash; ReSpec Draft</a> <span class="tag tag-editor">Editor&rsquo;s Draft</span></div>
-    <div class="doc-desc">Requirements and design principles for voice AI systems, with analysis of documented deployment failures. See the <a href="https://github.com/w3c-cg/aikr/blob/main/voiceAI/readmeplease.md">document-set guide</a> for how the voice drafts relate.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/voiceAI/voice-ai-standards-withnewtypes.html">Voice AI Standards &mdash; With New Types</a> <span class="tag tag-editor">Editor&rsquo;s Draft</span></div>
-    <div class="doc-desc">Extended version with new voice-AI interaction-type classifications; from the W3C Smart Voice Agents Workshop.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/Solid/solidguide.html">Guide to Solid</a> <span class="tag tag-editor">Editor&rsquo;s Draft</span></div>
-    <div class="doc-desc">A practical introduction to the W3C Solid protocol for content creators, AI agent developers, and users.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/conduit/index.html">Conduit Feedback</a> <span class="tag tag-editor">Editor&rsquo;s Draft</span></div>
-    <div class="doc-desc">Feedback posted to the AI Agents Protocols CG (March 2026).</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/TNAI/machine-consumable-specs.html">Guidelines for Writing Machine-Consumable Specifications</a> <span class="tag tag-editor">Technical Note</span></div>
-    <div class="doc-desc">Guidance on authoring specifications readable and consumable by AI agents and automated tools.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://w3c-cg.github.io/aikr/TN-S/sustainability-ai-assistants.html">Accessibility and Sustainability Principles for AI Code Assistants</a> <span class="tag tag-editor">Technical Note</span></div>
-    <div class="doc-desc">Principles for accessibility and sustainability in AI code assistants.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/webai/accessibility_principles.md">Community Note: Code Quality Principles for AI-Generated Code</a> <span class="tag tag-draft">Note</span></div>
-    <div class="doc-desc">Quality and accessibility principles for code generated by AI systems.</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/A2WF/intersection.md">Inventory of Efforts Related to A2WF</a> <span class="tag tag-draft">Note</span></div>
-    <div class="doc-desc">A survey of efforts intersecting the Agent-to-Web Framework (A2WF).</div>
-  </li>
-  <li>
-    <div class="doc-title"><a href="https://github.com/w3c-cg/aikr/blob/main/robot_text_explainer.md">Understanding robots.txt &mdash; A Primer for the Age of AI Agents</a> <span class="tag tag-draft">Primer</span></div>
-    <div class="doc-desc">An explainer on robots.txt and content-usage signals in the context of AI agents.</div>
-  </li>
-</ul>
+  <h3>What gap in current Web technology does this address?</h3>
+  <p>
+    There is no shared, system-level knowledge representation for the agentic-AI ecosystem.
+    The CG contributes one by tracking and exposing the ecosystem's evolution through KR
+    artefacts — concept maps, graphs, vocabularies, ontologies and semantic models — paying
+    particular attention to where representations diverge. The work is devised to support
+    the cognition of generalists and a shared understanding of a vast and complex ecosystem
+    <em>for which there is, as yet, no map</em>.
+  </p>
+</section>
 
-<div class="contribute">
-  <strong>Contributing:</strong>
-  Read the <a href="https://github.com/w3c-cg/aikr/blob/main/CONTRIBUTING.md">contributing guidelines</a> and <a href="https://github.com/w3c-cg/aikr/blob/main/CODE_OF_CONDUCT.md">code of conduct</a> before participating. File issues and pull requests via <a href="https://github.com/w3c-cg/aikr">GitHub</a>, or post to the <a href="https://lists.w3.org/Archives/Public/public-aikr/">public mailing list</a>.
-</div>
+<section id="howtoread">
+  <h2>How to read this note</h2>
+  <p>
+    This is an index and a scaffold, not a specification. Each document in the repository
+    is a focused snapshot taken at the point where the AI KR perspective met a specific
+    neighbouring effort. The two sections that follow give the constructs every note plugs
+    into: the <a href="#aiao">AIAO classification vocabulary</a> (what facet of agentic AI a
+    note concerns) and the <a href="#framework">Agent Interoperability Framework</a> (which
+    layer of the representation-to-trust progression it serves). The
+    <a href="#repomap">repository map</a> then slots the current documents into that scaffold,
+    and the <a href="#slot">slot template</a> shows how a new note joins.
+  </p>
+</section>
 
-<footer>
-  <p>Copyright &copy; 2026 the Contributors to the W3C AI Knowledge Representation Community Group, published under the <a href="https://www.w3.org/community/about/process/cla/">W3C Community Contributor License Agreement</a>. &nbsp;&bull;&nbsp; <a href="https://www.w3.org/community/">W3C Community and Business Groups</a></p>
-</footer>
+<section id="framework-section">
+  <h2>Organising framework</h2>
+
+  <section id="aiao">
+    <h3>AIAO — the agent-classification vocabulary</h3>
+    <p>
+      AIAO synthesises recurring agent taxonomies from the research literature into a single
+      multi-dimensional vocabulary. Its stated design principle is <em>synthesis over
+      invention</em>: existing classifications are harmonised rather than replaced. In its
+      current revision it comprises eight dimensions:
+    </p>
+    <ol>
+      <li><strong>Autonomy Level</strong> — Reactive · Deliberative · Learning · AutonomousGoalSeeking</li>
+      <li><strong>Functional Role</strong> — Assistant · Analytical · Creative · Task</li>
+      <li><strong>Cognitive / Operational Capability</strong> — Perception · Planning · Reasoning · Learning · Memory</li>
+      <li><strong>Interaction Style</strong> — HumanInTheLoop · MultiAgentSystem · Collaborative</li>
+      <li><strong>Embodiment</strong> — PureSoftware · Robotic · Hybrid</li>
+      <li><strong>Operational Scope</strong> — SingleTask · MultiTask · OpenEnded</li>
+      <li><span class="new"><strong>Interface Modality</strong></span> — Text · Voice · Visual · Multimodal</li>
+      <li><span class="new"><strong>Interaction Paradigm</strong></span> — Transactional · Relational · HybridParadigm</li>
+    </ol>
+    <p>
+      Dimensions 7 and 8 (highlighted) are recent additions contributed by the CG beyond the
+      synthesised literature.
+    </p>
+  </section>
+
+  <section id="ontic-new">
+    <h3>New ontic-map categories surfaced by the CG</h3>
+    <p>
+      Working through concrete interactions (for example the agent-interface and proof
+      binding exchanges), the CG has identified two categories that have no adequate home in
+      prior upper-level schemes and are proposed as genuine additions to the ontic map:
+    </p>
+    <ul>
+      <li>
+        <strong>KR Interface / Execution Bridge</strong> — the category for mechanisms that
+        translate between ontological definitions and executable code (e.g. IDL/compiler and
+        binding layers).
+      </li>
+      <li>
+        <strong>Verification / Trust Layer</strong> — the category for verifiable credentials,
+        cryptographic proofs and execution attestation (e.g. proof bindings), connecting to
+        the emerging trust layer for agentic systems.
+      </li>
+    </ul>
+  </section>
+
+  <section id="framework">
+    <h3>Agent Interoperability Framework (summary)</h3>
+    <p>
+      The framework arranges the work as a progression of layers, from making things
+      explicit to making them trustworthy. Each repository note serves one or more layers:
+    </p>
+    <ol>
+      <li><strong>Representation</strong> — explicit, shared representations of agent facets (the KR base).</li>
+      <li><strong>Alignment</strong> — reconciling divergent vocabularies and ontologies so models agree.</li>
+      <li><strong>Interoperability</strong> — enabling agents, protocols and services to operate together on a common model.</li>
+      <li><strong>Trust</strong> — provenance, verification and attestation that make interoperation accountable.</li>
+    </ol>
+    <p>A fuller treatment of the framework is in preparation for separate publication.</p>
+  </section>
+</section>
+
+<section id="repomap">
+  <h2>Repository map</h2>
+  <p>
+    The table below slots the documents currently in the repository into the scaffold. The
+    <em>ontic category</em> column names the relevant AIAO dimension or ontic-map category;
+    the <em>layer</em> column gives the framework layer the note principally serves; and
+    <em>bridges to</em> names the neighbouring standard it engages.
+  </p>
+
+  <table class="slot">
+    <thead>
+      <tr><th>Document</th><th>Ontic category</th><th>Layer</th><th>Bridges to</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/agonalign/">agonalign</a> — Agent Ontology Alignment (IDL ↔ HMAS)</td>
+        <td>Agent ontology</td><td>Alignment</td><td>HMAS / Web of Things</td>
+      </tr>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/webMCP/webmcp-technical-notes.html">webMCP</a> — WebMCP Technical Notes</td>
+        <td>Tool / context invocation (Functional Role · Cognitive)</td><td>Representation</td><td>Model Context Protocol</td>
+      </tr>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/conduit/">conduit</a> — Missing Layer Zero</td>
+        <td>Capability / commerce (Interaction Paradigm: Transactional)</td><td>Interoperability + Trust</td><td>IETF VCAP / AIVS / ATEP · Google AP2</td>
+      </tr>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/voiceAI/voice-ai-standards-respec.html">voiceAI</a> — Configurable Voice Interaction</td>
+        <td>Interface Modality: Voice</td><td>Interoperability</td><td>W3C Web Speech API</td>
+      </tr>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/DFMC/">DFMC</a> — Digital Forensics Model Card</td>
+        <td>Verification / Trust Layer (provenance)</td><td>Trust</td><td>Model Cards</td>
+      </tr>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/Solid/solidguide.html">Solid</a> — How to Use Solid</td>
+        <td>Data sovereignty</td><td>Trust (data)</td><td>Solid / decentralised data</td>
+      </tr>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/trust/trust-layer-thread-summary.html">trust</a> — Knowledge Representation for Trust: vocabulary, use cases and working draft</td>
+        <td>Verification / Trust Layer</td><td>Trust</td><td>W3C VC / DID · IETF WIMSE</td>
+      </tr>
+      <tr>
+        <td><a href="https://w3c-cg.github.io/aikr/trust/krt.html">KRT</a> — KR for Trust Ontology, skeleton v0.1</td>
+        <td>Verification / Trust Layer</td><td>Representation + Trust</td><td>PROV-O · ODRL · SHACL</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/w3c-cg/aikr/blob/main/trust/kroftrust.md">kroftrust</a> — The Trust Layer Through the Lens of Digital Identity Chains</td>
+        <td>Verification / Trust Layer (identity resolution)</td><td>Trust</td><td>W3C DID WG · DIF · ERC-8004</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/w3c-cg/aikr/blob/main/trust/ksk.md">ksk</a> — Root KSK Rollover, W3C Trust Groups and AI KR</td>
+        <td>Verification / Trust Layer (trust anchors)</td><td>Trust</td><td>DNSSEC · W3C Credentials CG · IETF DANE</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section id="slot">
+    <h3>Slot template — how a new note joins</h3>
+    <p>
+      A contributor does not need to understand the whole repository to add to it. A new
+      note declares five fields, and it drops into the map:
+    </p>
+    <table class="slot">
+      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Title</td><td>The note's subject.</td></tr>
+        <tr><td>Ontic category</td><td>Which AIAO dimension or ontic-map category it represents.</td></tr>
+        <tr><td>Layer</td><td>Representation · Alignment · Interoperability · Trust.</td></tr>
+        <tr><td>Bridges to</td><td>The neighbouring W3C / IETF / external standard it engages.</td></tr>
+        <tr><td>Status</td><td>Draft snapshot · under discussion · stable.</td></tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+<section id="landscape">
+  <h2>Neighbouring standards landscape (short)</h2>
+  <p>
+    The AI KR CG work sits among many related efforts across standards bodies. The table below
+    is a short orientation; a wider, working-draft inventory — with each effort's core elements
+    and a sketch of its AIAO / KR alignment — is maintained separately at
+    <a href="https://w3c-cg.github.io/aikr/sdo-inventory/">Inventory of Agentic-AI Standards Activity</a>.
+  </p>
+  <table class="inv">
+    <thead><tr><th>Body / group</th><th>Effort</th><th>AIAO / KR pointer</th></tr></thead>
+    <tbody>
+      <tr><td class="body">W3C — Autonomous Agents on the Web CG</td><td>HMAS / hypermedia agents</td><td>Embodiment · Alignment</td></tr>
+      <tr><td class="body">W3C — Agent Protocol CG</td><td>Agent protocols</td><td>Interaction Style · Interoperability</td></tr>
+      <tr><td class="body">W3C — AIVS CG (Sanctuary)</td><td>Agentic integrity verification</td><td>Verification / Trust Layer</td></tr>
+      <tr><td class="body">W3C — Web ML WG</td><td>WebMCP (proposed) / WebNN</td><td>Tool-context invocation · Representation</td></tr>
+      <tr><td class="body">W3C — Voice / Smart Voice Agents</td><td>Voice agent standards</td><td>Interface Modality: Voice</td></tr>
+      <tr><td class="body">W3C — VC / DID WGs</td><td>Credentials &amp; identity</td><td>Verification / Trust Layer</td></tr>
+      <tr><td class="body">IETF — draft-stone-vcap / -atep / -aivs</td><td>Capability, reputation, integrity</td><td>Interoperability + Trust · cite AI KR CG TN</td></tr>
+      <tr><td class="body">ISO/IEC JTC 1 SC 42</td><td>AI risk / management</td><td>Governance / systemic-risk facet</td></tr>
+      <tr><td class="body">A2A (Google→LF) · MCP (Anthropic→LF)</td><td>Agent &amp; tool interoperability — Linux Foundation, maintainer-gated</td><td>Interaction Paradigm · Representation → Interoperability</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="visualmap">
+  <h2>Visual map</h2>
+  <p>
+    An interactive map of how the documents relate to one another and to neighbouring W3C
+    and IETF work is published at
+    <a href="https://w3c-cg.github.io/aikr/map/">https://w3c-cg.github.io/aikr/map/</a>.
+    It is intended to orient new readers and contributors.
+  </p>
+</section>
+
+<section id="contributing">
+  <h2>Contributing</h2>
+  <p>
+    The most direct way to understand the meaning and impact of this work is to
+    <strong>participate in the Community Group</strong>. Contributions to the repository are
+    welcome: open an issue or a pull request, populate the
+    <a href="#slot">slot template</a> for any new note, and the change will be triaged by the
+    maintainer. Discussion takes place on the
+    <a href="https://lists.w3.org/Archives/Public/public-aikr/">public-aikr</a> mailing list.
+  </p>
+</section>
+
+<section id="references" class="informative">
+  <h2>References (informative)</h2>
+  <p>Repository documents:
+    <a href="https://w3c-cg.github.io/aikr/agonalign/">agonalign</a>,
+    <a href="https://w3c-cg.github.io/aikr/webMCP/webmcp-technical-notes.html">webMCP</a>,
+    <a href="https://w3c-cg.github.io/aikr/conduit/">conduit</a>,
+    <a href="https://w3c-cg.github.io/aikr/voiceAI/voice-ai-standards-respec.html">voiceAI</a>,
+    <a href="https://w3c-cg.github.io/aikr/DFMC/">DFMC</a>,
+    <a href="https://w3c-cg.github.io/aikr/Solid/solidguide.html">Solid</a>.
+  </p>
+  <p>Neighbouring W3C activity:
+    Autonomous Agents on the Web CG,
+    Agent Protocol CG,
+    Web Machine Learning WG (WebMCP),
+    Smart Voice Agents Workshop,
+    Solid CG.
+  </p>
+  <p>Neighbouring IETF activity:
+    <a href="https://datatracker.ietf.org/doc/draft-stone-vcap/">draft-stone-vcap</a>,
+    <a href="https://datatracker.ietf.org/doc/draft-stone-atep/">draft-stone-atep</a>,
+    <a href="https://datatracker.ietf.org/doc/draft-stone-aivs/">draft-stone-aivs</a>.
+  </p>
+</section>
 
 </body>
 </html>
